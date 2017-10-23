@@ -9,6 +9,7 @@ export default class controller {
   }
   $onInit(element) {
     if (element) this.image = element.children();
+    this.animating = false;
   }
   $onChanges(changes) {
     if (changes.showComponent) {
@@ -18,18 +19,46 @@ export default class controller {
   }
   $onDestroy() {
     this.timeline = null;
+    this.image = null;
+    this.animating = null;
   }
   fadeIn(element, cb) {
-    (new TimelineMax()).to(element, 1, { opacity: 1, onComplete: cb });
+    if (!this.animating) {
+      this.subComponentAnimating(true);
+      (new TimelineMax()).to(element, 1, { opacity: 1, onComplete: () => {
+        this.subComponentAnimating(false);
+        cb();
+      } });
+    } else {
+      cb();
+    }
   }
   fadeOut(element, cb) {
-    (new TimelineMax()).to(element, 1, { opacity: 0, onComplete: cb });
+    if (!this.animating) {
+      this.subComponentAnimating(true);
+      (new TimelineMax()).to(element, 1, { opacity: 0, onComplete: () => {
+        this.subComponentAnimating(false);
+        cb();
+      } });
+    } else {
+      cb();
+    }
   }
   save() {
-    this.onUpdate({
+    if (!this.animating) {
+      this.onUpdate({
+        $event: {
+          showComponent: this.showComponent
+        }
+      });
+    }
+  }
+  subComponentAnimating(bool) {
+    this.animating = bool;
+    this.onSubComponentAnimatingUpdate({
       $event: {
-        showComponent: this.showComponent
+        subComponentAnimating: this.animating
       }
-    });
+    })
   }
 }

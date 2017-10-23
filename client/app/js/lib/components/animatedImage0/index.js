@@ -11,8 +11,7 @@ export default {
   component: {
     bindings: {
       showComponent: '<',
-      onUpdate: '&',
-      onSubComponentAnimatingUpdate: '&'
+      onUpdate: '&'
     },
     controller: controller,
     template: template
