@@ -9,7 +9,7 @@
   "scripts": {
     "test": "mocha",
     "test-with-debug": "DEBUG=Angular* mocha",
-    "start": "DEBUG=Angular* node server",
+    "start": "DEBUG=Angular* nodemon server",
     "stop": "kill -9 $(pgrep node)"
   },
   "repository": {
