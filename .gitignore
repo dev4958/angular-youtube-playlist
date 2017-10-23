@@ -63,4 +63,5 @@ typings/
 **/*.log/**
 testBundle.js
 **/package-lock.json
-client/
+server/
+client/app/assets/images
