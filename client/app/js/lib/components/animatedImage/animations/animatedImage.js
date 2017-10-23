@@ -6,11 +6,11 @@ export default {
     return {
       enter: function(element, done) {
         let controller = element.controller('animatedImage');
-        controller.fadeIn(controller.image, done);
+        controller.fadeIn(controller.content, done);
       },
       leave: function(element, done) {
         let controller = element.controller('animatedImage');
-        controller.fadeOut(controller.image, done);
+        controller.fadeOut(controller.content, done);
       }
     };
   }

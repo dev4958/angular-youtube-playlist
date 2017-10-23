@@ -2,8 +2,10 @@
 
 import { TimelineMax } from 'gsap';
 
-import controller from './controller';
+import style from './template/style.sass';
 import template from './template/template.html';
+
+import controller from './controller';
 
 export default {
   name: 'application',

@@ -8,7 +8,7 @@ export default class controller {
     this.$onInit($element);
   }
   $onInit(element) {
-    if (element) this.image = element.children();
+    if (element) this.content = element.children();
     this.animating = false;
   }
   $onChanges(changes) {
@@ -19,7 +19,7 @@ export default class controller {
   }
   $onDestroy() {
     this.timeline = null;
-    this.image = null;
+    this.content = null;
     this.animating = null;
   }
   fadeIn(element, cb) {

@@ -9,7 +9,7 @@ import uirouter from 'angular-ui-router';
 console.log("%c\nAngularJS Youtube Playlist\n%cRenders videos in a Youtube playlist.\n\n","padding: 0; color:#000000; line-height:30px; font-size: 18px; font-family:'Helvetica',sans-serif;","padding:0px;color:#000000;line-height:20px;font-size:12px;font-family:'Helvetica',sans-serif;")
 
 // Style
-import css from '../css/style.scss';
+import style from '../css/style.sass';
 
 // Routing Configuration
 import routingConfig from './lib/routingConfig';
