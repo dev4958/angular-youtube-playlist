@@ -1,0 +1,31 @@
+<section class="playlist">
+  <header class="playlist-header">
+    <h1 class="playlist-name">YouTube Playlist</h1>
+    <input type="search" alt="Search the playlist." ng-model="$ctrl.search" placeholder="Search..." size="30" class="search"></input>
+  </header>
+  <main ng-repeat="video in $ctrl.playlist | filter: $ctrl.search" class="video-data">
+    <section class="video-data-container">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <a ui-sref="details" ui-sref-active="active" ng-click="$ctrl.setCurrentVideo(video.videoId)">
+                <img alt="{{video.name}} thumbnail." ng-src="{{video.thumbnailUrl}}" class="tablet video-thumbnail" width="{{video.thumbnailWidth}}" height="{{video.thumbnailHeight}}"/>
+              </a>
+            </td>
+            <td class="video-summary">
+              <a ui-sref="details" ui-sref-active="active" ng-click="$ctrl.setCurrentVideo(video.videoId)">
+                <h3 class="video-name">{{video.name}}</h3>
+              </a>
+              <h5 class="video-publication">Published on {{video.publishDate}}</h5>
+              <a ui-sref="details" ui-sref-active="active" class="mobile" ng-click="$ctrl.setCurrentVideo(video.videoId)">
+                <img alt="{{video.name}} thumbnail." ng-src="{{video.thumbnailUrl}}" class="video-thumbnail" width="{{video.thumbnailWidth}}" height="{{video.thumbnailHeight}}"/>
+              </a>
+              <p class="tablet video-description">{{video.descriptionShort}}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</section>

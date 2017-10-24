@@ -8,8 +8,11 @@ import template from './template/template.html';
 import controller from './controller';
 
 export default {
-  name: 'application',
+  name: 'youtubePlaylist',
   component: {
+    bindings: {
+      onUpdate: '&'
+    },
     controller: controller,
     template: template
   }

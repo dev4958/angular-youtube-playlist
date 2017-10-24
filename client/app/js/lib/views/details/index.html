@@ -1,0 +1,24 @@
+<section class="video-data-summary-container">
+  <header class="playlist-header">
+    <h3 class="video-summary-name"><a ui-sref="playlist" ui-sref-active="active" class="back-navigation">&lt;</a>{{$ctrl.currentVideo.name}}</h3>
+    <h5 class="video-summary-publication">Published on {{$ctrl.currentVideo.publishDate}}</h5>
+  </header>
+  <main>
+    <table>
+      <tbody>
+        <tr>
+          <!-- <td>
+            <section class="tablet">
+            </section>
+          </td> -->
+          <td class="video-details">
+            <section class="video-iframe">
+              <iframe width="320" height="200" ng-src="{{$ctrl.currentVideo.trustedVideoUrl}}" frameborder="0" allowfullscreen></iframe>
+            </section>
+            <p class="video-summary-description">{{$ctrl.currentVideo.description}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</section>
