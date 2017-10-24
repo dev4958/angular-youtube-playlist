@@ -17,8 +17,11 @@ app.use(helmet());
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    styleSrc: ["'self'", "'unsafe-inline'"],
-    scriptSrc: ["'self'", "'unsafe-inline'"]
+    styleSrc: ["'self'", "'unsafe-inline'", 'fonts.googleapis.com'],
+    scriptSrc: ["'self'", "'unsafe-inline'"],
+    imgSrc: ["'self'", 'i.ytimg.com'],
+    frameSrc: ['www.youtube-nocookie.com'],
+    fontSrc: ['fonts.gstatic.com']
   }
 }));
 app.use(helmet.noCache());
@@ -57,7 +60,8 @@ app.get('*.css', (req, res, next) => {
 
 app.use('/api', youtubeResourceRoutes);
 app.use('/', express.static(path.join(__dirname, 'build')));
-
+app.use('/details', express.static(path.join(__dirname, 'build')));
+app.use('*', express.static(path.join(__dirname, 'build')));
 const port = process.env.PORT || 5000;
 module.exports = exports = app.listen(port, () => debug(`Resource server now running on port ${port}.`));
 

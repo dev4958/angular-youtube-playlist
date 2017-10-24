@@ -7,7 +7,7 @@
     "test": "karma start",
     "start": "rm -rf ../server/build && webpack-dev-server",
     "stop": "kill -9 $(pgrep node) && kill -9 $(pgrep -f webpack)",
-    "pro": "rm -rf ../server/build && echo 'Processing application files...' && NODE_ENV=production webpack -p  > /dev/null && echo 'Compiling application files...' && NODE_ENV=production webpack -p --progress && cd ../server/build && rm -rf **/*.js && rm -rf *.css && rm -rf *.html && cd ../../client"
+    "pro": "rm -rf ../server/build && echo 'Processing application files...' && NODE_ENV=production webpack  > /dev/null && echo 'Compiling application files...' && NODE_ENV=production webpack --progress"
   },
   "keywords": [],
   "repository": {

@@ -83,7 +83,7 @@ let webpackConfig = {
         }
       }]
     },{
-      test: /\.scss$/,
+      test: /\.(scss|sass)$/,
       use: css
     }, {
       test: /\.html$/,

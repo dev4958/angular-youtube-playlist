@@ -65,3 +65,4 @@ testBundle.js
 **/package-lock.json
 server/
 client/app/assets/images
+other/

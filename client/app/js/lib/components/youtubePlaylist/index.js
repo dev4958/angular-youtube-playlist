@@ -2,19 +2,18 @@
 
 import { TimelineMax } from 'gsap';
 
-import controller from './controller';
+import style from './template/style.sass';
 import template from './template/template.html';
-import animations from './animations/';
+
+import controller from './controller';
 
 export default {
-  name: 'animatedImage',
+  name: 'youtubePlaylist',
   component: {
     bindings: {
-      showComponent: '<',
       onUpdate: '&'
     },
     controller: controller,
     template: template
-  },
-  animations: animations
+  }
 }
