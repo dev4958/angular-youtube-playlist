@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 import youtubePlaylist from './youtubePlaylist/'
 
