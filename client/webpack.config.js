@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
 // Native Node Modules
-const path = require('path');
+const path = require('path')
 
 // NPM Modules
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const extractTextPlugin = require('extract-text-webpack-plugin');
-const compressionPlugin = require('compression-webpack-plugin');
-const preloadWebpackPlugin = require('preload-webpack-plugin');
-const webpack = require('webpack');
+const htmlWebpackPlugin = require('html-webpack-plugin')
+const extractTextPlugin = require('extract-text-webpack-plugin')
+const compressionPlugin = require('compression-webpack-plugin')
+const preloadWebpackPlugin = require('preload-webpack-plugin')
+const webpack = require('webpack')
 
-let production = process.env.NODE_ENV === 'production';
+let production = process.env.NODE_ENV === 'production'
 let css = production ? [{
       loader: 'style-loader',
       options: {
@@ -27,17 +27,15 @@ let css = production ? [{
       loader: 'postcss-loader',
       options: {
         plugins: function () {
-          return [
-            require('autoprefixer')
-          ];
+          return [ require('autoprefixer') ]
         }
       }
     }, {
       loader: 'sass-loader',
       options: {}
-  }] : [ 'style-loader', 'css-loader', 'sass-loader' ];
+  }] : [ 'style-loader', 'css-loader', 'sass-loader' ]
 
-let appTitle = 'AngularJS Youtube Playlist';
+let appTitle = 'AngularJS Youtube Playlist'
 let appHtml = production ? new htmlWebpackPlugin({
   title: appTitle,
   template: `${path.join(__dirname, 'app', 'index.ejs')}`,
@@ -61,7 +59,7 @@ let appHtml = production ? new htmlWebpackPlugin({
   template: `${path.join(__dirname, 'app', 'index.ejs')}`,
   favicon: `${path.join(__dirname, 'app', 'assets', 'images', 'favicon.ico')}`,
   hash: true
-});
+})
 
 let webpackConfig = {
   entry: {
@@ -175,12 +173,12 @@ let webpackConfig = {
     hot: true,
     open: false
   }
-};
-
-if (production) {
-  delete webpackConfig['devtool'];
-  delete webpackConfig['devServer'];
-  webpackConfig['output']['filename'] = './js/[name].bundle.min.js';
 }
 
-module.exports = webpackConfig;
+if (production) {
+  delete webpackConfig['devtool']
+  delete webpackConfig['devServer']
+  webpackConfig['output']['filename'] = './js/[name].bundle.min.js'
+}
+
+module.exports = webpackConfig

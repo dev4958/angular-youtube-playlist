@@ -17,7 +17,7 @@ let youtubeResourceRouter = new express.Router();
 youtubeResourceRouter.get('/youtube-playlist-feed', (req, res) => {
   debug(`GET request to "/youtube-playlist-feed" begun.`);
   debug(`Proceeding to query Youtube API for playlist data.`);
-  let url = process.env.YOUTUBE_API_PLAYLIST_FEED || `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&maxResults=50&playlistId=PLSi28iDfECJPJYFA4wjlF5KUucFvc0qbQ&key=AIzaSyCuv_16onZRx3qHDStC-FUp__A6si-fStw`;
+  let url = process.env.YOUTUBE_API_PLAYLIST_FEED || `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&maxResults=50&playlistId=PLhI0-MxjENx6pxSM_LmwRNu1R5AKArpPP&key=AIzaSyCuv_16onZRx3qHDStC-FUp__A6si-fStw`;
   debug(`Youtube API Playlist Feed URL: ${url}`);
   request(url, function (err, response, body) {
     if (err) return error(res, err, 500, `Internal server error, your request for the Youtube playlist's feed could not be completed.`);

@@ -1,6 +1,6 @@
 'use strict';
 
-import youtubePlaylist from './youtubePlaylist/';
+import youtubePlaylist from './youtubePlaylist/'
 
 export default [
   youtubePlaylist
